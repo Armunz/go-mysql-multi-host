@@ -24,6 +24,10 @@ func NewMySQLMultiHostConnector(clusterDSNs []string, dialTimeoutMs int) (*mysql
 		return nil, fmt.Errorf("multi host dsn should not be empty")
 	}
 
+	if dialTimeoutMs == 0 {
+		return nil, fmt.Errorf("dial timeout should not be 0")
+	}
+
 	connectors := make([]driver.Connector, 0, len(clusterDSNs))
 	for _, dsn := range clusterDSNs {
 		cfg, err := mysql.ParseDSN(dsn)
