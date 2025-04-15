@@ -18,6 +18,14 @@ import (
     "github.com/Armunz/go-mysql-multi-host"
 )
 
+hosts := []string{
+    "<user>:<password>@tcp(<host-1>:<port-1>)/<database>",
+    "<user>:<password>@tcp(<host-2>:<port-2>)/<database>",
+    "<user>:<password>@tcp(<host-3>:<port-3>)/<database>",
+}
+
+dialTimeoutMs := 3000
+
 mysqlMultiHostConnector := mysqlmultihost.NewMySQLMultiHostConnector(hosts, dialTimeoutMs)
 db := sql.OpenDB(mysqlMultiHostConnector)
 ```
