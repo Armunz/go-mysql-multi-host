@@ -1,4 +1,4 @@
-module go-mysql-multi-host
+module github.com/Armunz/go-mysql-multi-host
 
 go 1.22.4
 
